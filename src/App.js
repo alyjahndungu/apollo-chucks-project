@@ -14,7 +14,6 @@ import {Link } from 'react-router-dom';
 
 import './App.css';
 import Quote from './components/Quote';
-// import { ProtectedRoute } from "./components/protected.route";
 import HomeContainer from './components/HomeContainer'
 import SearchQuote from './components/SearchQuote';
 import RandomQuote from './components/RandomQuote'
