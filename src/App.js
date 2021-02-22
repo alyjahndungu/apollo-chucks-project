@@ -19,7 +19,6 @@ import Quote from './components/Quote';
 import HomeContainer from './components/HomeContainer'
 // import Login from './components/Login';
 import SearchQuote from './components/SearchQuote';
-// import Register from './components/Register';
 import RandomQuote from './components/RandomQuote'
 
 import clsx from 'clsx';
