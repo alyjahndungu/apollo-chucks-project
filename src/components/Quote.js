@@ -13,6 +13,7 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Divider from "@material-ui/core/Divider";
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
@@ -39,23 +40,21 @@ const useStyles = makeStyles((theme) => ({
     borderBottomLeftRadius: 30,
     borderTopRightRadius: 30,
     backgroundColor: "#e8eaf6",
-    
   },
   quoteText: {
-   color: '#1c2a48',
-   fontSize: 18
+    color: "#1c2a48",
+    fontSize: 18,
   },
-  catTitle:{
-   color: '#1a237e',
-   fontSize: 22,
-   alignItems: 'center'
+  catTitle: {
+    color: "#1a237e",
+    fontSize: 22,
+    alignItems: "center",
   },
   textCategory: {
-     marginLeft: 300,
-     color: '#c51162',
-     fontSize: 16,
-     textTransform: 'uppercase'
-
+    marginLeft: 300,
+    color: "#c51162",
+    fontSize: 16,
+    textTransform: "uppercase",
   },
   media: {
     height: 0,
@@ -93,7 +92,7 @@ const Quote = (props) => {
                   avatar={<img src={icon_url} alt="" />}
                   action={
                     <IconButton aria-label="settings">
-                      <MoreVertIcon style={{color: '#3949ab'}} />
+                      <MoreVertIcon style={{ color: "#3949ab" }} />
                     </IconButton>
                   }
                   title="Chuck Norris"
@@ -109,28 +108,30 @@ const Quote = (props) => {
                   </Typography>
                 </CardContent>
                 <Box display="flex" justifyContent="space-between">
-                
-                <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon style={{color: '#d81b60'}} />
-                  </IconButton>
-                  <IconButton aria-label="share">
-                    <ShareIcon style={{color: '#4a148c'}}/>
-                  </IconButton>
-                   <Typography
-                    variant="h4"
-                    className={classes.textCategory}
-                    component="p"
-                  >
-                    {category}
-                  </Typography>
-
-                </CardActions>
+                  <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                      <FavoriteIcon style={{ color: "#d81b60" }} />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                      <ShareIcon style={{ color: "#4a148c" }} />
+                    </IconButton>
+                    <Typography
+                      variant="h4"
+                      className={classes.textCategory}
+                      component="p"
+                    >
+                      {category}
+                    </Typography>
+                  </CardActions>
                 </Box>
               </Card>
-              <Typography variant="h5" className={classes.catTitle}>
-                Browse some more categories if Chuck's magnificence
-              </Typography>
+
+              <Box display="flex" justifyContent="center" my={2}>
+                <Typography variant="h5" className={classes.catTitle}>
+                  Browse some more categories if Chuck's magnificence
+                </Typography>
+              </Box>
+              <Divider />
               <CategoriesList />
             </Fragment>
           );

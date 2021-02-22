@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   },
   chip: {
     margin: theme.spacing(1),
+    backgroundColor: '#1c2331',
+    color: '#fff',
+    fontSize:12
   },
 }));
 
