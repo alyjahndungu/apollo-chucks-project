@@ -17,7 +17,6 @@ import Quote from './components/Quote';
 // import { ProtectedRoute } from "./components/protected.route";
 // import Authenticated from './components/Auth';
 import HomeContainer from './components/HomeContainer'
-// import Login from './components/Login';
 import SearchQuote from './components/SearchQuote';
 import RandomQuote from './components/RandomQuote'
 
