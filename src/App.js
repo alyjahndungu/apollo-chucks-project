@@ -1,15 +1,10 @@
 import React from 'react';
 import { ApolloClient } from "@apollo/client";
-
-
 import { InMemoryCache } from 'apollo-cache-inmemory';
-
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {Link } from 'react-router-dom';
 
-
-import './App.css';
 import Quote from './components/Quote';
 import HomeContainer from './components/HomeContainer'
 import SearchQuote from './components/SearchQuote';
