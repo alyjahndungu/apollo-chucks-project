@@ -41,6 +41,12 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 0,
     paddingTop: '56.25%',
+  }, 
+  textCategory: {
+    marginLeft: 300,
+    color: "#c51162",
+    fontSize: 16,
+    textTransform: "uppercase",
   },
   expand: {
     transform: 'rotate(0deg)',
