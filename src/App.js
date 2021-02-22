@@ -48,9 +48,6 @@ import LoopIcon from '@material-ui/icons/Loop';
 // });
 
 // const middlewareLink = new ApolloLink(() => {
-//   // operation.setContext({
-//   //   // headers: {
-
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
