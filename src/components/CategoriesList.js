@@ -32,7 +32,6 @@ const CategoriesList = (props) => {
   if (data) {
     return (
       <Fragment>
-        {/* <button onClick={()=>logout()}>Logout</button> */}
 
         {
           data.categories.map(category => (
