@@ -43,11 +43,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LoopIcon from '@material-ui/icons/Loop';
 
-// const httpLink = createHttpLink({
-//   uri: 'http://localhost:4000/graphiql',
-// });
-
-
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: "http://localhost:4000/graphql"
