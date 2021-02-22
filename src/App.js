@@ -47,7 +47,6 @@ import LoopIcon from '@material-ui/icons/Loop';
 //   uri: 'http://localhost:4000/graphiql',
 // });
 
-// const middlewareLink = new ApolloLink(() => {
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
