@@ -15,6 +15,8 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Box from "@material-ui/core/Box";
+import Divider from "@material-ui/core/Divider";
 
 
 const RANDOM_QUERY = gql`
@@ -97,9 +99,12 @@ const Quote = (props) => {
                 </CardActions>
 
               </Card>
-              <Typography variant="h4">
-                Browse some more categories if Chuck's magnificence
-        </Typography>
+           <Box display="flex" justifyContent="center" my={2}>
+                <Typography variant="h5" className={classes.catTitle}>
+                  Browse some more categories if Chuck's magnificence
+                </Typography>
+              </Box>
+              <Divider />
               <CategoriesList />
             </Fragment>
           }
