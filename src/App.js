@@ -50,11 +50,7 @@ import LoopIcon from '@material-ui/icons/Loop';
 // const middlewareLink = new ApolloLink(() => {
 //   // operation.setContext({
 //   //   // headers: {
-//   //   //   authorization: localStorage.getItem('token') || ''
-//   //   // }
-//   // });
-//   // return forward(operation);
-// });
+
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
