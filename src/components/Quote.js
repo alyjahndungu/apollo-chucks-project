@@ -14,6 +14,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
@@ -32,6 +34,12 @@ const QUOTE_QUERY = gql`
 `;
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+    backgroundColor: theme.palette.background.dark,
+    height: '100%',
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
+  },
   card: {
     maxWidth: 500,
     margin: "auto",
@@ -77,7 +85,9 @@ const Quote = (props) => {
 
   let { category } = props.match.params;
   return (
-    <Fragment>
+    <div className={classes.root}>
+    <Grid container spacing={3}>
+            <Grid item xs={12} sm={12}>
       <Query query={QUOTE_QUERY} variables={{ category }}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;
@@ -87,6 +97,8 @@ const Quote = (props) => {
 
           return (
             <Fragment>
+            <Grid container spacing={3}>
+            <Grid item xs={6} sm={12}>
               <Card className={classes.card}>
                 <CardHeader
                   avatar={<img src={icon_url} alt="" />}
@@ -125,7 +137,7 @@ const Quote = (props) => {
                   </CardActions>
                 </Box>
               </Card>
-
+</Grid></Grid>
               <Box display="flex" justifyContent="center" my={2}>
                 <Typography variant="h5" className={classes.catTitle}>
                   Browse some more categories if Chuck's magnificence
@@ -137,7 +149,19 @@ const Quote = (props) => {
           );
         }}
       </Query>
-    </Fragment>
+              </Grid></Grid>
+  <Box justifyContent="center" style={{ marginTop: 52 }}>
+        <footer class="page-footer font-small special-color-light pt-4">
+          <div class="footer-copyright text-center special-color-dark py-3">
+            © 2021 Copyright:
+            <a href="https://www.linkedin.com/in/elijah-ndung-u-472980192/">
+              {" "}
+              Ternstone Developer
+            </a>
+          </div>
+        </footer>
+      </Box>
+    </div>
   );
 };
 

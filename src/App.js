@@ -171,7 +171,7 @@ const App = (props) => {
             <div className={classes.drawerHeader} />
             <Container maxWidth="md">
               <Route exact path='/' component={HomeContainer} />
-              <Route exact path='/SearchQuote' component={SearchQuote} />
+              {/* <Route exact path='/SearchQuote' component={SearchQuote} /> */}
               <Route exact path='/randomQuote' component={RandomQuote} />
               <Route exact path='/category/:category' component={Quote} />
             </Container>
