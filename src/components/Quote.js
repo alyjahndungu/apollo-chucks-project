@@ -1,21 +1,20 @@
-import React, { Fragment } from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import CategoriesList from './CategoriesList';
+import React, { Fragment } from "react";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
+import CategoriesList from "./CategoriesList";
 
-import Moment from 'react-moment'
+import Moment from "react-moment";
 
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShareIcon from "@material-ui/icons/Share";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const QUOTE_QUERY = gql`
   query Joke($category: String!) {
@@ -25,32 +24,31 @@ const QUOTE_QUERY = gql`
       icon_url
       created_at
       updated_at
-      
     }
   }
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
-    margin: 'auto',
-    marginTop: '50px',
-    marginBottom: '50px'
+    margin: "auto",
+    marginTop: "50px",
+    marginBottom: "50px",
   },
   media: {
     height: 0,
-    paddingTop: '56.25%',
+    paddingTop: "56.25%",
   },
   expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
-  }
+    transform: "rotate(180deg)",
+  },
 }));
 
 const Quote = (props) => {
@@ -60,18 +58,17 @@ const Quote = (props) => {
   return (
     <Fragment>
       <Query query={QUOTE_QUERY} variables={{ category }}>
-        {
-          ({ loading, error, data }) => {
-            if (loading) return <h4>Loading...</h4>
-            if (error) console.log(error)
-            console.log(data)
-            const { value, icon_url, updated_at } = data.jokes
+        {({ loading, error, data }) => {
+          if (loading) return <h4>Loading...</h4>;
+          if (error) console.log(error);
+          console.log(data);
+          const { value, icon_url, updated_at } = data.jokes;
 
-            return <Fragment>
-
+          return (
+            <Fragment>
               <Card className={classes.card}>
                 <CardHeader
-                  avatar={<img src={icon_url} alt=""/>}
+                  avatar={<img src={icon_url} alt="" />}
                   action={
                     <IconButton aria-label="settings">
                       <MoreVertIcon />
@@ -81,33 +78,33 @@ const Quote = (props) => {
                   subheader={<Moment format="YYYY-MM-DD">{updated_at}</Moment>}
                 />
                 <CardContent>
-                  <Typography variant="body2" color="textSecondary" component="p">
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
                     {value}
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
-                      <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                      <ShareIcon />
-                    </IconButton>
-
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <ShareIcon />
+                  </IconButton>
                 </CardActions>
-
               </Card>
               <Typography variant="h4">
-          Browse some more categories if Chuck's magnificence
-        </Typography>
+                Browse some more categories if Chuck's magnificence
+              </Typography>
               <CategoriesList />
             </Fragment>
-          }
-        }
+          );
+        }}
       </Query>
-
     </Fragment>
-  )
+  );
+};
 
-}
-
-export default Quote
+export default Quote;
