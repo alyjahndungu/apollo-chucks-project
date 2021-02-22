@@ -32,7 +32,7 @@ const RANDOM_QUERY = gql`
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 500,
     margin: "auto",
     marginTop: "50px",
     marginBottom: "50px",
@@ -54,6 +54,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#c51162",
     fontSize: 16,
     textTransform: "uppercase",
+  },
+  quoteText: {
+    color: "#1c2a48",
+    fontSize: 18,
+  },
+  title: {
+    color: "#d81b60",
+    textAlign: "center",
   },
   expand: {
     transform: "rotate(0deg)",
@@ -81,7 +89,9 @@ const Quote = (props) => {
 
           return (
             <Fragment>
-              <Typography variant="h3">Here's your random quote!</Typography>
+              <Typography variant="h3" className={classes.title}>
+                Here's your random quote!
+              </Typography>
 
               <Card className={classes.card}>
                 <CardHeader
@@ -97,7 +107,7 @@ const Quote = (props) => {
                 <CardContent>
                   <Typography
                     variant="body2"
-                    color="textSecondary"
+                    className={classes.quoteText}
                     component="p"
                   >
                     {value}
@@ -105,10 +115,10 @@ const Quote = (props) => {
                 </CardContent>
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
+                    <FavoriteIcon style={{ color: "#d81b60" }} />
                   </IconButton>
                   <IconButton aria-label="share">
-                    <ShareIcon />
+                    <ShareIcon style={{ color: "#4a148c" }} />
                   </IconButton>
                 </CardActions>
               </Card>
@@ -123,6 +133,18 @@ const Quote = (props) => {
           );
         }}
       </Query>
+
+      <Box justifyContent="center" style={{ marginTop: 52 }}>
+        <footer class="page-footer font-small special-color-light pt-4">
+          <div class="footer-copyright text-center special-color-dark py-3">
+            © 2021 Copyright:
+            <a href="https://www.linkedin.com/in/elijah-ndung-u-472980192/">
+              {" "}
+              Ternstone Developer
+            </a>
+          </div>
+        </footer>
+      </Box>
     </Fragment>
   );
 };

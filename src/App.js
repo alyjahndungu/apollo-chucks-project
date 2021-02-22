@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     display: 'flex',
+    backgroundColor: '#f4f6f8'
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -149,12 +150,12 @@ const App = (props) => {
             <List>
 
                 <ListItem button component={Link} to="/">
-                  <ListItemIcon><HomeIcon /></ListItemIcon>
+                  <ListItemIcon><HomeIcon style={{color: '#4a148c'}}/></ListItemIcon>
                   <ListItemText primary="Home" />
                 </ListItem>
 
                 <ListItem button component={Link} to="/randomQuote">
-                  <ListItemIcon><LoopIcon /></ListItemIcon>
+                  <ListItemIcon><LoopIcon style={{color: '#4a148c'}} /></ListItemIcon>
                   <ListItemText primary="Random Quote" />
                 </ListItem>
 
