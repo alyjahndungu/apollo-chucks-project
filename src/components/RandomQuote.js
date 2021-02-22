@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   quoteText: {
     color: "#1c2a48",
-    fontSize: 18,
+    fontSize: 12,
   },
   title: {
     color: "#d81b60",
