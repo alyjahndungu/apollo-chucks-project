@@ -41,7 +41,12 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 0,
     paddingTop: '56.25%',
-  }, 
+  },  
+  catTitle: {
+    color: "#1a237e",
+    fontSize: 22,
+    alignItems: "center",
+  },
   textCategory: {
     marginLeft: 300,
     color: "#c51162",
