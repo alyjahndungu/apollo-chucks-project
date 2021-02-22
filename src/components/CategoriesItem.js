@@ -18,9 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function CategoriesItem({ category }) {
   const classes = useStyles();
-  // console.log(category);
   return (
-
     <Chip
       label={category}
       className={classes.chip}
@@ -28,7 +26,6 @@ export default function CategoriesItem({ category }) {
       to={`/category/${category}`}
       clickable
     />
-    // <Link to={`/category/${category}`}>{category}</Link> 
 
   )
 }
