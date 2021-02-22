@@ -61,10 +61,7 @@ const client = new ApolloClient({
   uri: "http://localhost:4000/graphql"
 });
 
-// const client = new ApolloClient({
-//   link: middlewareLink.concat(httpLink),
-//   cache: new InMemoryCache()
-// });
+
 
 const drawerWidth = 240;
 
@@ -158,8 +155,7 @@ const App = (props) => {
               <Typography variant="h6" className={classes.title}>
                 Chuck Norris App
               </Typography>
-              {/* <Button color="inherit" component={Link} to="/login" onClick={() => Authenticated.logout()} >Logout</Button> */}
-              {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
+        
             </Toolbar>
           </AppBar>
 
@@ -189,16 +185,6 @@ const App = (props) => {
                   <ListItemText primary="Random Quote" />
                 </ListItem>
 
-                <ListItem button component={Link} to="/register">
-                  <ListItemIcon><AccountCircleIcon /></ListItemIcon>
-                  <ListItemText primary="Register" />
-                </ListItem>
-
-                <ListItem button component={Link} to="/login">
-                  <ListItemIcon><AccountCircleIcon /></ListItemIcon>
-                  <ListItemText primary="Login" />
-                </ListItem>
-
             </List>
 
           </Drawer>
@@ -210,9 +196,7 @@ const App = (props) => {
           >
             <div className={classes.drawerHeader} />
             <Container maxWidth="md">
-              {/* <ProtectedRoute exact path='/' component={HomeContainer} /> */}
               <Route exact path='/' component={HomeContainer} />
-              {/* <Route exact path='/Register' component={Register} /> */}
               <Route exact path='/SearchQuote' component={SearchQuote} />
               <Route exact path='/randomQuote' component={RandomQuote} />
               <Route exact path='/category/:category' component={Quote} />
