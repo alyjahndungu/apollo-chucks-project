@@ -28,6 +28,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import LoopIcon from '@material-ui/icons/Loop';
+import Page from './components/Page';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -41,7 +42,6 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    display: 'flex',
     backgroundColor: '#f4f6f8'
   },
   appBarShift: {
@@ -110,7 +110,7 @@ const App = (props) => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="App">
+        {/* <Page className={classes.root}> */}
           <AppBar
             position="fixed"
             className={clsx(classes.appBar, {
@@ -169,14 +169,14 @@ const App = (props) => {
             })}
           >
             <div className={classes.drawerHeader} />
-            <Container maxWidth="md">
+            <Container maxWidth={false}>
               <Route exact path='/' component={HomeContainer} />
               {/* <Route exact path='/SearchQuote' component={SearchQuote} /> */}
               <Route exact path='/randomQuote' component={RandomQuote} />
               <Route exact path='/category/:category' component={Quote} />
             </Container>
           </main>
-        </div>
+        {/* </Page> */}
       </Router>
     </ApolloProvider>
   );

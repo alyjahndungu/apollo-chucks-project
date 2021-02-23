@@ -1,7 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import gql from "graphql-tag";
 import { useQuery } from "react-apollo";
 import CategoriesItem from "./CategoriesItem";
+import Page from './Page';
+import {Typography, Box, Divider, Container, Grid} from '@material-ui/core';
+
 
 const CATEGORY_QUERY = gql`
   query CategoryQuery {
@@ -23,11 +26,19 @@ const CategoriesList = (props) => {
 
   if (data) {
     return (
-      <Fragment>
+      <>
+      <Container maxWidth={false}>
+       <Grid container spacing={3}>
+            <Grid item xs={6} sm={6}>
+      <Box display="flex" flexWrap="wrap"  p={1}
+        m={1} >
         {data.categories.map((category) => (
           <CategoriesItem key={category} category={category} />
         ))}
-      </Fragment>
+      </Box>
+      </Grid></Grid>
+      </Container>
+      </>
     );
   }
 };

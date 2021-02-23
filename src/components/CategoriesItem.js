@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 import Chip from '@material-ui/core/Chip';
+import Page from './Page';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
+    height: '100%',
+    backgroundColor: '#f4f6f8',
+    
   },
   chip: {
     margin: theme.spacing(1),
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 export default function CategoriesItem({ category }) {
   const classes = useStyles();
   return (
+    <Page className={classes.root}>
     <Chip
       label={category}
       className={classes.chip}
@@ -29,6 +31,7 @@ export default function CategoriesItem({ category }) {
       to={`/category/${category}`}
       clickable
     />
+    </Page>
 
   )
 }

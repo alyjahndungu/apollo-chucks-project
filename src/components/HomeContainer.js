@@ -1,21 +1,21 @@
 import React, { Fragment } from 'react';
 import CategoriesList from './CategoriesList';
 import { makeStyles } from "@material-ui/core/styles";
+import Page from './Page';
 
 // import SearchQuote from './SearchQuote'
 
-import {Typography, Box, Divider} from '@material-ui/core';
+import {Typography, Box, Divider, Container, Grid} from '@material-ui/core';
 
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-    backgroundColor: theme.palette.background.dark,
-    height: '100%',
-    paddingBottom: theme.spacing(3),
-    paddingTop: theme.spacing(3)
-  },
+  root: {
+    flexGrow: 1,
+    backgroundColor: '#f4f6f8',
 
+    height: '100%'
+  },
   quoteText: {
     color: "#1c2a48",
     fontSize: 18,
@@ -41,8 +41,52 @@ const HomeContainer = (props) => {
   const classes = useStyles();
 
   return (
-    <Fragment>
-      <div style={homeWrapperStyle}>
+    <Page className={classes.root}>
+      <Container maxWidth={false}>
+       <Grid container spacing={3}>
+            <Grid item xs={12} sm={1}></Grid>
+            <Grid item xs={12} sm={10}>
+            <Box justifyContent="center" display="flex" m={3}>
+        <Typography variant="h3" className={classes.title}>
+          Welcome to what Chuck Norris Says
+        </Typography>
+
+        <Divider />
+       
+            </Box>
+
+            <Box justifyContent="center" display="flex" my={3}>
+                <img
+                  alt="Under development"
+                  className={classes.image}
+                  src="./undraw_feeling_happy_jymo.svg"
+                />
+              </Box>
+
+                 
+        <Typography variant="subtitle1" className={classes.quoteText}>
+          Pick a category to see the jokes
+        </Typography>
+            
+
+            <Grid container spacing={3}>
+            <Grid item xs={12} sm={1} />
+            <Grid item xs={12} sm={10}>
+              <CategoriesList />
+            </Grid>
+            <Grid item xs={12} sm={1}/>
+            </Grid>
+
+            
+
+          
+
+            </Grid>
+            <Grid item xs={12} sm={1}></Grid>
+            
+            </Grid>
+      
+      {/* <div style={homeWrapperStyle}>
         <Typography variant="h3" className={classes.title}>
           Welcome to what Chuck Norris Says
         </Typography>
@@ -61,7 +105,7 @@ const HomeContainer = (props) => {
       </div>
       <div style={homeWrapperStyle}>
         <CategoriesList />
-      </div>
+      </div> */}
 
         <Box justifyContent="center" style={{ marginTop: 52 }}>
         <footer class="page-footer font-small special-color-light pt-4">
@@ -74,8 +118,8 @@ const HomeContainer = (props) => {
           </div>
         </footer>
       </Box>
-
-    </Fragment>
+</Container>
+    </Page>
 
   )
 }

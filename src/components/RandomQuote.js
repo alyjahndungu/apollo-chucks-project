@@ -17,6 +17,9 @@ import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+
+import Page from './Page';
 
 const RANDOM_QUERY = gql`
   query Quote {
@@ -31,8 +34,15 @@ const RANDOM_QUERY = gql`
 `;
 
 const useStyles = makeStyles((theme) => ({
+   root: {
+// backgroundColor: theme.palette.background.dark,
+    backgroundColor: '#f4f6f8',
+    height: '100%',
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
+  },
   card: {
-    maxWidth: 500,
+    maxWidth: 700,
     margin: "auto",
     marginTop: "50px",
     marginBottom: "50px",
@@ -79,7 +89,10 @@ const Quote = (props) => {
   const classes = useStyles();
 
   return (
-    <Fragment>
+    <Page className={classes.root}>
+     <Grid container spacing={3}>
+            <Grid item xs={12} sm={1}/>
+            <Grid item xs={12} sm={10}>
       <Query query={RANDOM_QUERY}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;
@@ -88,10 +101,15 @@ const Quote = (props) => {
           const { value, icon_url, updated_at } = data.random_joke;
 
           return (
-            <Fragment>
+            <Page className={classes.root}>
+             <Grid container spacing={3}>
+            <Grid item xs={12} sm={1} />
+            <Grid item xs={12} sm={10}>
+
               <Typography variant="h3" className={classes.title}>
                 Here's your random quote!
               </Typography>
+                    <Box display="flex" alignItems="center" justifyContent="center">
 
               <Card className={classes.card}>
                 <CardHeader
@@ -122,6 +140,7 @@ const Quote = (props) => {
                   </IconButton>
                 </CardActions>
               </Card>
+              </Box>
               <Box display="flex" justifyContent="center" my={2}>
                 <Typography variant="h5" className={classes.catTitle}>
                   Browse some more categories if Chuck's magnificence
@@ -129,7 +148,12 @@ const Quote = (props) => {
               </Box>
               <Divider />
               <CategoriesList />
-            </Fragment>
+              </Grid>
+
+            <Grid item xs={12} sm={1}/>
+      
+              </Grid>
+            </Page>
           );
         }}
       </Query>
@@ -145,7 +169,11 @@ const Quote = (props) => {
           </div>
         </footer>
       </Box>
-    </Fragment>
+         </Grid>
+            <Grid item xs={12} sm={1}/>
+      
+              </Grid>
+    </Page>
   );
 };
 
